@@ -1,0 +1,16 @@
+#cloud-config
+hostname: coreos-node1
+ssh_authorized_keys:
+  - ssh-rsa $public-key
+coreos:
+  etcd:
+    discovery: $discovery-url
+    addr: $private-ip:4001
+    peer-addr: $private-ip:7001
+    peer-election-timeout: 3000
+    peer-heartbeat-interval: 600
+  units:
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start

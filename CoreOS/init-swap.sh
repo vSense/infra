@@ -10,6 +10,6 @@ SWAPFILE=${SWAPSIZE}ib.swap
 
 touch /$SWAPFILE
 chattr +C /$SWAPFILE
-fallocate -l 2G /$SWAPSIZE
+fallocate -l $SWAPSIZE /$SWAPFILE
 chmod 600 /$SWAPFILE
 mkswap /$SWAPFILE

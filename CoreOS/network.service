@@ -1,0 +1,12 @@
+[Match]
+Name=ethernet0
+
+[Network]
+Description='Static IPv4 & IPv6 ethernet'
+Address=A.B.C.D/24
+Gateway=A.B.C.D
+Address=A:B:C::D/64
+Gateway=A:B:C::D
+DNS=A.B.C.D
+DNS=A:B:C::D
+Domains='vsense.fr'

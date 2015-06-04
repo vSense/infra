@@ -6,7 +6,7 @@
 #
 
 SWAPSIZE=2G
-SWAPFILE=${SWAPSIZE}ib.swap
+SWAPFILE=${SWAPSIZE}iB.swap
 
 touch /$SWAPFILE
 chattr +C /$SWAPFILE

@@ -1,0 +1,13 @@
+[Unit]
+Description=nginx
+Requires=srv-nginx.mount
+After=srv-nginx.mount
+RequiresMountsFor=/srv/nginx
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill nginx
+ExecStartPre=-/usr/bin/docker rm nginx
+ExecStartPre=-/usr/bin/docker pull vsense/nginx:consul-template
+ExecStart=/usr/bin/docker run -p 80:80 -p 443:443 --name nginx -v /srv/nginx/etc/sites-enabled:/etc/nginx/sites-enabled -v /srv/nginx/etc/certs:/etc/nginx/certs -v /srv/nginx/etc/log:/var/log/nginx -v /srv/nginx/etc/template:/etc/nginx/template -v /srv/nginx/etc/supervisor-consul:/etc/supervisor-consul -v /srv/nginx/etc/conf.d:/etc/nginx/conf.d -v /srv/nginx/data:/var/www -e "SERVICE_NAME=nginx" -e "SERVICE_80_TAGS=http" -e "SERVICE_443_TAGS=https" vsense/nginx:consul-template
+ExecStop=-/usr/bin/docker stop nginx

@@ -1,0 +1,8 @@
+[Mount]
+What=10.0.10.211:/nfs/bind
+Where=/srv/bind
+Type=nfs
+Options=noauto
+
+[X-Fleet]
+Global=true

@@ -1,0 +1,16 @@
+[Unit]
+Description=bind
+Requires=srv-bind.mount
+After=srv-bind.mount
+RequiresMountsFor=/srv/bind
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill bind
+ExecStartPre=-/usr/bin/docker rm bind
+ExecStartPre=-/usr/bin/docker pull vsense/bind:consul
+ExecStart=/usr/bin/docker run -p 53:53 -p 53:53/udp -v /srv/bind/etc:/etc/bind -v /srv/bind/supervisor-consul:/etc/supervisor-consul --name bind -e "SERVICE_NAME=bind" -e "SERVICE_53_TAGS=dns" vsense/bind:consul
+ExecStop=-/usr/bin/docker stop bind
+
+[Install]
+WantedBy=multi-user.target

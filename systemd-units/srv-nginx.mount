@@ -1,6 +1,6 @@
 [Mount]
-What=10.0.10.211:/nfs
-Where=/data
+What=10.0.10.211:/nfs/nginx
+Where=/srv/nginx
 Type=nfs
 Options=noauto
 

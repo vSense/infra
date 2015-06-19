@@ -1,0 +1,16 @@
+[Unit]
+Description=consul
+After=docker.service
+Before=registrator.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill consul
+ExecStartPre=-/usr/bin/docker rm consul
+ExecStartPre=/usr/bin/docker pull progrium/consul
+ExecStart=/usr/bin/docker run --name consul -h consul-node1 -v /consul:/data -e "SERVICE_NAME=consul" -e "SERVICE_8400_TAGS=ui" -p 8300:8300 -p 8301:8301 -p 8301:8301/udp -p 8302:8302 -p 8302:8302/udp -p 8400:8400 -p 8500:8500 -p 8600:53/udp -p 8600:53 progrium/consul -server -ui-dir /ui -advertise 10.0.10.51 -join 10.0.10.52
+ExecStop=/usr/bin/docker stop consul
+
+[Install]
+WantedBy=multi-user.target

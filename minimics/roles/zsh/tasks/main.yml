@@ -1,0 +1,16 @@
+---
+- apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - zsh
+    - python
+    - python-pip
+
+- pip: name=powerline-status
+
+- template: src=zshrc dest=~/.zshrc
+- git : repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+- template: src=aliases dest=~/.aliases.local
+- get_url: url=https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark dest=~/.dircolors.256dark

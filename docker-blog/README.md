@@ -3,12 +3,11 @@
 Usage :
 
  ```
- git clone http://github.com/vsense/blog /blog && cd /blog
- git clone --recursive http://github.com/getpelican/pelican-plugins
+ git clone http://github.com/your/blog /blog && cd /blog
 
- docker run -d -p 8000:8000 -v /blog:/blog vsense/docker-blog
+ docker run -d -p 8000:8000 -v /blog:/blog vsense/pelican
  ```
 
  You can access to the blog on your browser http://DOCKER_IP:8000
 
- For visualize your changes, just restart your container
+ For visualize changes, just restart your container

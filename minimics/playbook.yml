@@ -1,3 +1,11 @@
 - include: git.yml
 - include: vim.yml
 - include: zsh.yml
+- hosts: server
+  tasks:
+    - name: create ~/.fonts
+      file: path=~/.fonts state=directory
+    - name: import PragmataPro font
+      copy: src=files/PragmataPro-for-Powerline.otf dest=~/.fonts
+    - name: refresh font
+      shell: fc-cache -vf

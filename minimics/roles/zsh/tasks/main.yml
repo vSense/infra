@@ -5,10 +5,18 @@
     update_cache: yes
   with_items:
     - zsh
+
+- apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
     - python
     - python-pip
+  when: machine_type == "desktop"
 
 - pip: name=powerline-status
+  when: machine_type == "desktop"
 
 - template: src=zshrc dest=~/.zshrc
 - git : repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh

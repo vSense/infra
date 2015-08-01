@@ -7,4 +7,4 @@
     - vim
 
 - copy: src=vimrc dest=~/.vimrc
-- shell: vim +BundleInstall
+- shell: vim +BundleInstall +qall

@@ -16,9 +16,11 @@
 ##fonts
 [PragmataPro](https://github.com/pencilcheck/dotfiles/blob/master/files/PragmataPro%20for%20Powerline.otf)
 
+_NB : PragmataPro font will only be install on a remote target defining as a "desktop" in `hosts` file_
+
 >**Usage**
 - install ansible
-- edit `hosts` file and add your servers 
+- edit `hosts` file, add your servers and categories
 - make sure you can ssh on your servers with rsa private key 
 - edit `group_vars/all` to match your needs 
 - ``` ansible-playbook -i hosts playbook.yml``` 

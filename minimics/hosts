@@ -1,3 +1,8 @@
+#############
+#
+# HOSTS
+#
+
 [server1]
 192.168.1.29
 
@@ -7,6 +12,11 @@
 [pc1]
 172.16.0.19
 
+#############
+#
+# MACHINE TYPE
+#
+
 [server:children]
 server1
 server2
@@ -14,3 +24,14 @@ server2
 [desktop:children]
 pc1
 
+############
+#
+# OS TYPE
+#
+
+[debian:children]
+server1
+pc1
+
+[archlinux:children]
+server2

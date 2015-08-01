@@ -1,1 +1,16 @@
+[server1]
 192.168.1.29
+
+[server2]
+10.9.32.2
+
+[pc1]
+172.16.0.19
+
+[server:children]
+server1
+server2
+
+[desktop:children]
+pc1
+

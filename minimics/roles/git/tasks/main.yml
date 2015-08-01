@@ -5,6 +5,15 @@
     update_cache: yes
   with_items:
     - git
+  when: os_type == "debian"
+
+- pacman:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - git
+  when: os_type == "archlinux"
 
 - template:
     src: gitconfig

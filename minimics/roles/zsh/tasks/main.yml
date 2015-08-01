@@ -5,6 +5,7 @@
     update_cache: yes
   with_items:
     - zsh
+  when: os_type == "debian"
 
 - apt:
     name: "{{ item }}"
@@ -13,7 +14,25 @@
   with_items:
     - python
     - python-pip
-  when: machine_type == "desktop"
+  when: machine_type == "desktop" and os_type == "debian"
+
+- pacman:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - zsh
+  when: os_type == "archlinux"
+
+- pacman:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - python
+    - python-pip
+  when: machine_type == "desktop" and os_type == "archlinux"
+
 
 - pip: name=powerline-status
   when: machine_type == "desktop"

@@ -6,6 +6,7 @@
   with_items:
     - git
   when: os_type == "debian"
+  name: "apt-get install"
 
 - pacman:
     name: "{{ item }}"
@@ -14,7 +15,7 @@
   with_items:
     - git
   when: os_type == "archlinux"
+  name: "pacman install"
 
-- template:
-    src: gitconfig
-    dest: ~/.gitconfig
+- template: src=gitconfig dest=~/.gitconfig
+  name: "import gitconfig"

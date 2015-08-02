@@ -6,6 +6,7 @@
   with_items:
     - vim
   when: os_type == "debian"
+  name: "apt-get install "
 
 - pacman:
     name: "{{ item }}"
@@ -14,6 +15,9 @@
   with_items:
     - vim
   when: os_type == "archlinux"
+  name: "pacman install"
 
 - copy: src=vimrc dest=~/.vimrc
+  name: "import vimrc"
 - shell: vim +BundleInstall +qall
+  name: "vim bundle install"

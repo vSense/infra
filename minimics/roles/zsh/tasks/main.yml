@@ -37,16 +37,11 @@
   when: machine_type == "desktop" and os_type == "archlinux"
   name: "pacman install"
 
-
-- pip: name=powerline-status
-  when: machine_type == "desktop"
-  name: "pip install powerline-status"
-
 - template: src=zshrc dest=~/.zshrc
   name: "import zshrc"
 - git : repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
   name: "git clone oh-my-zsh"
 - template: src=aliases dest=~/.aliases.local
   name: "import aliases"
-- get_url: url=https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark dest=~/.dircolors.256dark
-  name: "download dircolors-solarized"
+- copy: src=files/dircolors.256dark dest=~/.dircolors.256dark
+  name: "copy dircolors-solarized"

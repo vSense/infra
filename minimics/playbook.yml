@@ -1,11 +1,34 @@
-- include: git.yml
-- include: vim.yml
-- include: zsh.yml
-- hosts: server
+- hosts: all
   tasks:
     - name: create ~/.fonts
       file: path=~/.fonts state=directory
     - name: import PragmataPro font
       copy: src=files/PragmataPro-for-Powerline.otf dest=~/.fonts
+      when: machine_type == "desktop"
     - name: refresh font
       shell: fc-cache -vf
+      when: machine_type == "desktop"
+    - apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - vim
+        - zsh
+        - git
+        - tmux
+      when: os_type == "debian"
+      sudo: yes
+    - apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - python
+        - python-pip
+      when: machine_type == "desktop" and os_type == "debian"
+      sudo: yes
+      name: "apt-get install"
+  roles:
+    - git
+    - vim
+    - zsh
+

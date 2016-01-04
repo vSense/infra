@@ -5,43 +5,19 @@
     update_cache: yes
   with_items:
     - zsh
+    - python
+    - python-pip
   when: os_type == "debian"
   name: "apt-get install"
 
-- apt:
-    name: "{{ item }}"
-    state: latest
-    update_cache: yes
-  with_items:
-    - python
-    - python-pip
-  when: machine_type == "desktop" and os_type == "debian"
-  name: "apt-get install"
-
-- pacman:
-    name: "{{ item }}"
-    state: latest
-    update_cache: yes
-  with_items:
-    - zsh
-  when: os_type == "archlinux"
-  name: "pacman install"
-
-- pacman:
-    name: "{{ item }}"
-    state: latest
-    update_cache: yes
-  with_items:
-    - python
-    - python-pip
-  when: machine_type == "desktop" and os_type == "archlinux"
-  name: "pacman install"
-
 - template: src=zshrc dest=~/.zshrc
   name: "import zshrc"
+
 - git : repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
   name: "git clone oh-my-zsh"
+
 - template: src=aliases dest=~/.aliases.local
   name: "import aliases"
+
 - copy: src=files/dircolors.256dark dest=~/.dircolors.256dark
   name: "copy dircolors-solarized"

@@ -1,0 +1,70 @@
+[global_config]
+  window_state = maximise
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    term = xterm-256color
+    copy_on_selection = True
+    use_system_font = False
+    background_darkness = 0.9
+    background_type = transparent
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    foreground_color = "#839496"
+    background_image = None
+    use_custom_command = True
+    show_titlebar = False
+    custom_command = env TERM=xterm-256color zsh
+    cursor_shape = ibeam
+    font = PragmataPro for Powerline 12
+    background_color = "#002b36"
+    allow_bold = False
+    scrollback_infinite = True
+  [[monokai]]
+    scrollbar_position = hidden
+    term = xterm-256color
+    copy_on_selection = True
+    use_system_font = False
+    background_darkness = 0.9
+    background_type = transparent
+    palette = "#000000:#f92672:#6cc72c:#fe9720:#5f91ef:#9358fe:#36af90:#8c8c8c:#4c4c4c:#ff80f4:#a7e22e:#ffee99:#5fd9ef:#ae82fe:#66efd5:#c7cece"
+    foreground_color = "#ffffff"
+    background_image = None
+    use_custom_command = True
+    icon_bell = False
+    show_titlebar = False
+    custom_command = env TERM=xterm-256color zsh
+    cursor_shape = ibeam
+    font = PragmataPro for Powerline 12
+    background_color = "#0d0d0d"
+    allow_bold = False
+    scrollback_infinite = True
+  [[monokai-trans]]
+    scrollbar_position = hidden
+    term = xterm-256color
+    use_system_font = False
+    background_darkness = 0.0
+    background_type = transparent
+    palette = "#000000:#f92672:#6cc72c:#fe9720:#5f91ef:#9358fe:#36af90:#8c8c8c:#4c4c4c:#ff80f4:#a7e22e:#ffee99:#5fd9ef:#ae82fe:#66efd5:#c7cece"
+    foreground_color = "#ffffff"
+    background_image = None
+    use_custom_command = True
+    icon_bell = False
+    show_titlebar = False
+    custom_command = env TERM=xterm-256color zsh
+    cursor_shape = ibeam
+    font = PragmataPro for Powerline 12
+    background_color = "#0d0d0d"
+    allow_bold = False
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

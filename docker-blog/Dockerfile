@@ -1,6 +1,6 @@
 # Blog dev Dockerfile
 
-FROM gliderlabs/alpine
+FROM vsense/baseimage:alpine
 
 MAINTAINER vSense <docker@vsense.fr>
 

@@ -29,7 +29,6 @@
         - tig
         - python
         - ptyhon-pip
-      when: os_type == "debian"
       sudo: yes
   roles:
     - git

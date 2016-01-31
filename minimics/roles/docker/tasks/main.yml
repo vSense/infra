@@ -11,7 +11,6 @@
     update_cache: yes
   with_items:
     - docker-engine
-  when: os_type == "debian"
   name: "apt-get install"
 
 - shell: usermod -aG docker rguichard

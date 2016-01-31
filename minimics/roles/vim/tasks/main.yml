@@ -5,7 +5,6 @@
     update_cache: yes
   with_items:
     - vim
-  when: os_type == "debian"
   name: "apt-get install "
 
 - copy: src=vimrc dest=~/.vimrc

@@ -7,7 +7,6 @@
     - zsh
     - python
     - python-pip
-  when: os_type == "debian"
   name: "apt-get install"
 
 - template: src=zshrc dest=~/.zshrc

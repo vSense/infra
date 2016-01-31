@@ -4,7 +4,7 @@ FROM vsense/baseimage:alpine
 
 MAINTAINER vSense <docker@vsense.fr>
 
-RUN apk-install \
+RUN apk -U add \
     python \
     python3 \
     git \

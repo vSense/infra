@@ -40,6 +40,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'hashivim/vim-consul'                                                     
+Plugin 'hashivim/vim-terraform'                                                  
+Plugin 'hashivim/vim-packer'
+Plugin 'chase/vim-ansible-yaml'
 
 call vundle#end()
 

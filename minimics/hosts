@@ -10,7 +10,7 @@
 #############
 # MACHINE TYPE
 
-[server:children]
+[servers:children]
 server
 
 [desktop:children]

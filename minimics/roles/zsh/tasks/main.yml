@@ -3,11 +3,12 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
+  sudo: yes
   with_items:
     - zsh
     - python
     - python-pip
-  name: "apt-get install"
+  name: "INSTALL | zsh"
 
 - template: src=zshrc dest=~/.zshrc
   name: "import zshrc"
@@ -18,5 +19,5 @@
 - template: src=aliases dest=~/.aliases.local
   name: "import aliases"
 
-- copy: src=files/dircolors.256dark dest=~/.dircolors.256dark
+- copy: src=dircolors.256dark dest=~/.dircolors.256dark
   name: "copy dircolors-solarized"

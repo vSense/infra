@@ -3,9 +3,10 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
+  sudo: yes
   with_items:
     - vim
-  name: "apt-get install "
+  name: "INSTALL | git"
 
 - copy: src=vimrc dest=~/.vimrc
   name: "import vimrc"

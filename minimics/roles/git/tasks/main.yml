@@ -3,9 +3,10 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
+  sudo: yes
   with_items:
     - git
-  name: "apt-get install"
+  name: "INSTALL | git"
 
 - template: src=gitconfig dest=~/.gitconfig
   name: "import gitconfig"

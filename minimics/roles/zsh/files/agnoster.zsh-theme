@@ -43,7 +43,8 @@ CURRENT_BG='NONE'
   # This is defined using a Unicode escape sequence so it is unambiguously readable, regardless of
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
-  SEGMENT_SEPARATOR=$'\ue0b0' # 
+  # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
+  SEGMENT_SEPARATOR=$'\ue0b0'
 }
 
 # Begin a segment
@@ -80,9 +81,9 @@ prompt_end() {
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     if [[ $UID -eq 0 ]]; then
-      prompt_segment red white "%(!.%{%F{white}%}.)$USER"
+      prompt_segment red black "%(!.%{%F{black}%}.)$USER"
     else
-      prompt_segment yellow black "⚡ %(!.%{%F{yellow}%}.)$USER"
+      prompt_segment yellow black "%(!.%{%F{yellow}%}.)⚡ $USER"
     fi
   fi
 }
@@ -104,7 +105,7 @@ prompt_git() {
     if [[ -n $dirty ]]; then
       prompt_segment green black
     else
-      prompt_segment blue black
+      prompt_segment cyan black
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -122,7 +123,7 @@ prompt_git() {
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '✚'
-    zstyle ':vcs_info:git:*' unstagedstr '⚙ '
+    zstyle ':vcs_info:git:*' unstagedstr '±'
     zstyle ':vcs_info:*' formats ' %u%c'
     zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info

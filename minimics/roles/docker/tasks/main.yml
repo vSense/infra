@@ -4,14 +4,15 @@
 - apt_repository:
     repo: "deb https://apt.dockerproject.org/repo ubuntu-wily main"
     state: present
+  sudo: yes
 
 - apt:
-    name: "{{ item }}"
     state: latest
     update_cache: yes
+  sudo: yes
   with_items:
     - docker-engine
-  name: "apt-get install"
+  name: "INSTALL | engine"
 
 - shell: usermod -aG docker rguichard
-  name: "add group docker"
+  name: "Add rguichard user to docker group"

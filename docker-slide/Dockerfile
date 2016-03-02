@@ -18,6 +18,8 @@ RUN apk -U add \
     && apk del build \
     && rm -rf /var/cache/apk/*
 
+WORKDIR /revealjs
+
 EXPOSE 8001
 
-CMD ["cd", "/revealjs", "&&", "grunt", "serve", "--port", "8001"]
+CMD ["grunt", "serve", "--port", "8001"]

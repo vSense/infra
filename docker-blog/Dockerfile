@@ -8,8 +8,8 @@ RUN apk -U add \
     python \
     python3 \
     perl \
-    && apk -U add --virtual deps \
     make \
+    && apk -U add --virtual deps \
     py-pip \
     && pip install pelican markdown \
     && apk del deps \

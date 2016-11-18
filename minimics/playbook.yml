@@ -15,7 +15,7 @@
     - copy: src=files/terminator-config dest=~/.config/terminator/config
 
     - apt:
-        name: "install {{ item }}"
+        name: "{{ item }}"
         state: latest
       sudo: yes
       with_items:
@@ -27,10 +27,8 @@
         - tig
         - python
         - python-pip
-      sudo: yes
   roles:
     - git
     - vim
     - zsh
-    - docker
-
+    #  - docker

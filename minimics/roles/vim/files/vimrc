@@ -40,10 +40,12 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'hashivim/vim-consul'                                                     
-Plugin 'hashivim/vim-terraform'                                                  
+Plugin 'hashivim/vim-consul'
+Plugin 'hashivim/vim-terraform'
 Plugin 'hashivim/vim-packer'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'stephpy/vim-yaml'
+Plugin 'lepture/vim-jinja'
 
 call vundle#end()
 
@@ -127,13 +129,13 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 80 characters
-" set lbr
-" set tw=79
+ set lbr
+ set tw=79
 set ai "Auto indent
 set si "Smart indent
 "set wrap "Wrap lines
@@ -237,10 +239,11 @@ endfunc
 " autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " SH
-" autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.sh :call DeleteTrailingWS()
+autocmd BufWrite *.yml :call DeleteTrailingWS()
 
 " All files
-autocmd BufWrite * :call DeleteTrailingWS()
+"autocmd BufWrite * :call DeleteTrailingWS()
 
 " Type :SudoW to save a file with sudo privileges
 command! -bar -nargs=0 SudoW   :silent exe "write !sudo tee % >/dev/null"|silent edit!

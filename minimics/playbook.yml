@@ -22,7 +22,7 @@
     - file: path=~/.config/terminator state=directory
     - copy: src=files/terminator-config dest=~/.config/terminator/config
 
-      roles:
+  roles:
     - git
     - vim
     - zsh

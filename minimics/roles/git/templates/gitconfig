@@ -5,8 +5,8 @@
     editor      = vim
 
 [user]
-    name        = rguichard
-    email       = rguichard@vsense.fr
+    name        = user 
+    email       = user@user.com
 
 [color]
     ui          = true

@@ -2,7 +2,7 @@
 - apt:
     state: latest
     update_cache: yes
-  sudo: yes
+  become: true
   with_items:
     - git
   name: "INSTALL | git"

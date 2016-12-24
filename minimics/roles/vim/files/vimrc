@@ -84,7 +84,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 " Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 highlight ExtraWhitespace   ctermbg=darkred guibg=#382424
 highlight ErrorMsg         ctermbg=darkred guibg=#382424
@@ -113,7 +112,7 @@ set background=dark
 "" Uncomment if you have a solarized terminal
 "" (eg: solarized for putty, gnome terminal solarized colors...)
 "let g:airline_theme='powerlineish'
-"let g:airline_theme='solarized'
+let g:airline_theme='solarized'
 
 "" Uncomment if you want to use your BASE16 theme
 " let g:airline_theme='base16'
@@ -134,8 +133,8 @@ set shiftwidth=2
 set tabstop=2
 
 " Linebreak on 80 characters
- set lbr
- set tw=79
+" set lbr
+" set tw=79
 set ai "Auto indent
 set si "Smart indent
 "set wrap "Wrap lines

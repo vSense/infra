@@ -5,8 +5,8 @@
     editor      = vim
 
 [user]
-    name        = user 
-    email       = user@user.com
+    name        = {{ git_user }}
+    email       = {{ git_email }}
 
 [color]
     ui          = true

@@ -10,17 +10,8 @@
     - python-pip
 
 - template: src=zshrc dest=~/.zshrc
-  name: "import zshrc"
-
 - git : repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh force=yes
-  name: "GIT | clone oh-my-zsh"
-
-- template: src=aliases dest=~/.aliases.local
-  name: "import aliases"
-
+- copy: src=aliases dest=~/.aliases.local
 - copy: src=dircolors.256dark dest=~/.dircolors.256dark
-  name: "COPY | dircolors-solarized"
-
 - copy: src=agnoster.zsh-theme dest=~/.oh-my-zsh/themes/agnoster.zsh-theme
-  name: "COPY | agnoster theme"
 

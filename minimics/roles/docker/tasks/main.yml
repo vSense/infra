@@ -1,18 +1,23 @@
 ---
-- shell: sudo gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-- shell: sudo gpg --export 58118E89F3A912897C070ADBF76221572C52609D | sudo apt-key add -
+
+
+- apt_key:
+    keyserver: hkp://ha.pool.sks-keyservers.net:80
+    id: 58118E89F3A912897C070ADBF76221572C52609D
+
 - apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo ubuntu-wily main"
     state: present
-  sudo: yes
+    repo: deb https://apt.dockerproject.org/repo ubuntu-{{ ubuntu_release }} main
 
 - apt:
-    state: latest
+    name: "{{ item }}"
+    state: "latest"
+    install_recommends: False
     update_cache: yes
-  sudo: yes
   with_items:
     - docker-engine
-  name: "INSTALL | engine"
+    - python-pip
 
-- shell: usermod -aG docker rguichard
-  name: "Add rguichard user to docker group"
+- lineinfile:
+    dest: /etc/default/locale
+    line: 'LC_ALL="en_US.UTF-8"'

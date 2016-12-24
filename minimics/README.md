@@ -1,4 +1,6 @@
-#Ansible playbook for git/zsh/vim
+# Ansible playbook for git/zsh/vim
+
+This playbook is intended to be used locally on your desktop machine. However few adjustements will make it suitable for any machines.
 
 ## zsh
 - Using oh-my-zsh bundle and custom aliases.
@@ -20,7 +22,5 @@ _NB : PragmataPro font will only be install on a remote target defining as a "de
 
 >**Usage**
 - install ansible
-- edit `hosts` file, add your servers and categories
-- make sure you can ssh on your servers with rsa private key 
-- edit `group_vars/all` to match your needs 
-- ``` ansible-playbook -i hosts playbook.yml``` 
+- edit `group_vars/all` to match your needs
+- ` ansible-playbook --connection=local playbook.yml`

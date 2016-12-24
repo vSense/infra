@@ -6,10 +6,6 @@
   become: true
   with_items:
     - vim
-  name: "INSTALL | git"
 
 - copy: src=vimrc dest=~/.vimrc
-  name: "import vimrc"
-
 - shell: vim +BundleInstall +qall
-  name: "vim bundle install"

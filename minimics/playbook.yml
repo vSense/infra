@@ -9,6 +9,7 @@
         - curl
         - python
         - python-pip
+        - fontconfig
 
     - file: path=~/.fonts state=directory
     - copy: src=files/PragmataPro-for-Powerline.otf dest=~/.fonts

@@ -1,6 +1,5 @@
 ---
 
-
 - apt_key:
     keyserver: hkp://ha.pool.sks-keyservers.net:80
     id: 58118E89F3A912897C070ADBF76221572C52609D
@@ -17,6 +16,18 @@
   with_items:
     - docker-engine
     - python-pip
+
+- pip:
+    name: "{{ item }}"
+  with_items:
+    - setuptools
+    - docker-py
+    - docker-compose
+
+- user:
+    append: yes
+    groups: docker
+    name: "{{ username }}"
 
 - lineinfile:
     dest: /etc/default/locale

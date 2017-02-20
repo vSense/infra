@@ -13,3 +13,4 @@ read machine_type
 
 echo "username: $username" >> group_vars/all
 echo "machine_type: $machine_type" >> group_vars/all
+echo "ubuntu_version: $ubuntu_version" >> group_vars/all

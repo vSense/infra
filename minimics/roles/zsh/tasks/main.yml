@@ -15,3 +15,6 @@
 - copy: src=dircolors.256dark dest=~/.dircolors.256dark
 - copy: src=agnoster.zsh-theme dest=~/.oh-my-zsh/themes/agnoster.zsh-theme
 
+- user:
+    name: "{{ username }}"
+    shell: /bin/zsh

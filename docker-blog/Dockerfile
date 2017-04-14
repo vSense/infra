@@ -11,7 +11,7 @@ RUN apk -U add \
     make \
     && apk -U add --virtual deps \
     py-pip \
-    && pip install pelican markdown \
+    && pip install pelican==3.6 beautifulsoup4 markdown \
     && apk del deps \
     && rm -rf /var/cache/apk/*
 

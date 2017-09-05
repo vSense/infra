@@ -11,6 +11,9 @@
         - python-pip
         - fontconfig
         - tmux
+        - libssl-dev
+        - libffi-dev
+        - python-dev
 
     - file: path=~/.fonts state=directory
     - copy: src=files/PragmataPro-for-Powerline.otf dest=~/.fonts
